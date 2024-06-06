@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Source Code Viewer</title>
+    <style>
+      main {
+        padding: 10px;
+        margin: 10px;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        font-family: "Roboto", sans-serif;
+        background: #1e1e1e;
+        color: #c7c7c7;
+      }
+      #container {
+        max-width: 100%;
+        margin: 0 auto;
+        background: #2d2d2d;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        padding: 20px;
+      }
+      #sourceCode {
+        overflow: auto;
+        padding: 15px;
+        max-width: 100%;
+        margin-bottom: 10px;
+        font-family: monospace;
+        height: 700px;
+        margin-bottom: 20px;
+        font-family: monospace;
+        border-radius: 3px;
+        border: none;
+        background: #1e1e1e;
+        color: #ffffff;
+        resize: none;
+        outline: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+      }
+      input {
+        max-width: 100%;
+        height: 40px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        border-radius: 5px;
+        padding: 10px;
+        background: #1e1e1e;
+        color: #ffffff;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background: #4caf50;
+        color: #ffffff;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      #status {
+        color: #4caf50;
+        margin-top: 10px;
+      }
+      footer {
+        color: #fff;
+        text-align: center;
+      }
+
+      .footer-content {
+        width: 100%;
+      }
+
+      .footer a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .footer a:hover {
+        text-decoration: underline;
+      }
+      .about-us {
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .about-us h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        position: relative;
+      }
+
+      .about-us h2:after {
+        content: "";
+        display: block;
+        width: 50px;
+        height: 3px;
+        background-color: #ff6600;
+        margin: 10px auto 0;
+      }
+
+      .team-member {
+        display: inline-block;
+        max-width: 100%;
+        margin: 10px;
+      }
+
+      .team-member-content {
+        padding: 20px;
+        border-radius: 10px;
+        background: #2d2d2d;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+        transition: transform 0.3s;
+      }
+
+      .team-member-content:hover {
+        transform: translateY(-10px);
+      }
+
+      .team-member img {
+        margin-left: 12px;
+        margin-right: 12px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        max-width: 93%;
+        height: auto;
+      }
+
+      .team-member h3 {
+        font-size: 1.5em;
+        margin: 20px 0 10px;
+      }
+
+      .team-member p {
+        color: #666;
+        margin: 0 0 20px;
+      }
+
+      .social-icons a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .social-icons img {
+        width: 40px;
+        height: 40px;
+        margin: 0 10px;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="container">
+        <h1>Website Source Code Viewer</h1>
+        <input type="text" id="urlInput" placeholder="Enter website URL" />
+        <br />
+        <br />
+        <br />
+        <button onclick="getSourceCode()">Get Source Code</button>
+        <button onclick="copySourceCode()">Copy Source Code</button>
+        <br />
+        <div id="status"></div>
+        <br />
+        <pre id="sourceCode"></pre>
+      </div>
+    </main>
+    <section class="about-us">
+      <h2>About Me</h2>
+      <div class="team-member">
+        <div class="team-member-content">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/itsgaurav-23.appspot.com/o/Portfolio%2Fgaurav.jpg?alt=media&token=821a85fb-319a-4ee0-b9e1-50ea48d67e98"
+            alt="Gaurav Prajapati"
+          />
+          <h3>Gaurav Prajapati</h3>
+          <a href="https://itsgaurav-23.web.app">Visit Portfolio</a>
+          <div class="social-icons">
+            <br /><br />
+            <a href="https://github.com/thematrix09">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/itsgaurav-23.appspot.com/o/Portfolio%2Fgithub.png?alt=media&token=f82e01f1-f30f-4ce1-96a5-17eac24f3315"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/its_gaurav._.23?igsh=azIwNDY5emVsZmQx"
+            >
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/itsgaurav-23.appspot.com/o/Portfolio%2Finsta.png?alt=media&token=6176bc4d-dfad-484b-86b3-5d91570f085e"
+              />
+            </a>
+            <a href="mailto:gauravprajapati041@gmail.com">
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/itsgaurav-23.appspot.com/o/Portfolio%2Fgmail.png?alt=media&token=8154eb8f-77b6-4aa0-a1ed-12940b4d2d0d"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/gaurav-prajapati-b08505259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            >
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/itsgaurav-23.appspot.com/o/Portfolio%2Fin.png?alt=media&token=5da25603-d236-4046-852b-e53e578b9cee"
+              />
+            </a>
+            <br />
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      async function getSourceCode() {
+        const url = document.getElementById("urlInput").value;
+        const statusElement = document.getElementById("status");
+        const sourceCodeElement = document.getElementById("sourceCode");
+
+        if (!url) {
+          alert("Please enter a URL");
+          return;
+        }
+
+        statusElement.textContent = "Processing...";
+        sourceCodeElement.textContent = "";
+
+        try {
+          const proxyUrl =
+            "https://api.allorigins.win/raw?url=" + encodeURIComponent(url);
+          const response = await fetch(proxyUrl);
+
+          if (response.ok) {
+            const data = await response.text();
+            sourceCodeElement.textContent = data;
+            statusElement.textContent = "";
+          } else {
+            statusElement.textContent =
+              "Failed to fetch source code. Please check the URL and try again.";
+          }
+        } catch (error) {
+          console.error("Error fetching source code:", error);
+          statusElement.textContent =
+            "An error occurred while fetching the source code.";
+        }
+      }
+
+      function copySourceCode() {
+        const sourceCodeElement = document.getElementById("sourceCode");
+        const range = document.createRange();
+        range.selectNodeContents(sourceCodeElement);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.execCommand("copy");
+      }
+    </script>
+    <br />
+    <br />
+    <hr />
+    <section class="d-block">
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2024 Code Formatter. All rights reserved.</p>
+          <p>
+            Contact me at :-
+            <a href="mailto: gauravprajapati041@gmail.com"
+              >gauravprajapati041@gmail.com</a
+            >
+          </p>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>
